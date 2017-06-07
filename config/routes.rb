@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :teams
+
   namespace :admin do
     # get "/stats" => "stats#stats"
     devise_scope :admin_user do

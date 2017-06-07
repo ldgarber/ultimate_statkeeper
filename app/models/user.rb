@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   attr_accessor :oauth_callback
   attr_accessor :current_password
-  has_many :team_coaches
+  has_many :team_coaches, :dependent => :destroy
   has_many :teams, through: :team_coaches
     
   validates_presence_of   :email, if: :email_required?
