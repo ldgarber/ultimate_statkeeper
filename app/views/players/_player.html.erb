@@ -1,0 +1,17 @@
+<div class="container">
+  <h2><%= player.name %></h2></br>
+
+  <% if player.height.present? %> 
+    Height: <%= player.height %></br> 
+  <% end %> 
+
+  <% if player.position.present? %> 
+    Position: <%= player.position %></br> 
+  <% end %> 
+
+  <% if player.team.name.present? %> 
+    Team name: <%= link_to player.team.name, team_path(player.team) %> </br>
+  <% end %> 
+
+</div>
+<br/>

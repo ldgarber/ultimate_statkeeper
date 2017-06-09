@@ -3,8 +3,7 @@ class TeamsController < ApplicationController
   end
 
   def create
-    @team = Team.create(team_params)
-    current_user.teams.push(@team)
+    current_user.teams.create(team_params)
     redirect_to root_path
   end
   

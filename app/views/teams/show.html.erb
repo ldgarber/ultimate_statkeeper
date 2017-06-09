@@ -1,3 +1,4 @@
 <div class="container">
   <h1><%= @team.name %></h1>
+  <%= render partial: "players/player", collection: @team.players %> 
 </div>

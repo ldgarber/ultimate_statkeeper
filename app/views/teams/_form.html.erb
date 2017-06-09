@@ -1,9 +1,10 @@
 <%= form_for team do |f| %> 
-  <%= f.label :name %> 
-  <%= f.text_field :name %><br>
+  <%= f.label "Team Name*" %> 
+  <%= f.text_field :name %><br/>
 
-  <%= f.fields_for :players do |player| %> 
-    <%= player.label :name %>
+  <p>Add a player:</p>
+  <%= f.fields_for :players, team.players.build do |player| %> 
+    <%= player.label "Name*" %>
     <%= player.text_field :name %><br/>
 
     <%= player.label :height %>
