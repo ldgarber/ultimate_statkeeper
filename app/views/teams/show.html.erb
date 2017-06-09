@@ -1,4 +1,6 @@
 <div class="container">
   <h1><%= @team.name %></h1>
   <%= render partial: "players/player", collection: @team.players %> 
+  <p>Edit team: <%= render partial: "teams/form", locals: {team: @team} %></p>
+  <p><%= link_to "All teams", teams_path %> 
 </div>

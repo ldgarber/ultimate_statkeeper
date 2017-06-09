@@ -1,5 +1,5 @@
 <div class="container">
-  <h2><%= player.name %></h2></br>
+  <h3><%= player.name %></h3>
 
   <% if player.height.present? %> 
     Height: <%= player.height %></br> 
@@ -10,8 +10,9 @@
   <% end %> 
 
   <% if player.team.name.present? %> 
-    Team name: <%= link_to player.team.name, team_path(player.team) %> </br>
+    Team: <%= link_to player.team.name, team_path(player.team) %> </br>
   <% end %> 
-
+  
+  <%= link_to "Delete", player_path(player), method: :delete, :data => {:confirm => "Are you sure?"} %> 
 </div>
 <br/>

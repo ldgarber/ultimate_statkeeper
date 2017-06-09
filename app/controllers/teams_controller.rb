@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController 
   def index
+    @teams = current_user.teams 
   end
 
   def create
@@ -15,6 +16,10 @@ class TeamsController < ApplicationController
   end
 
   def update
+    @team = Team.find(params[:id])
+    @team.update(team_params)
+    flash[:message] = "Team saved!"
+    redirect_to team_path(@team) 
   end
 
   def destroy
