@@ -1,6 +1,10 @@
 class PlayersController < ApplicationController 
   def index 
-    @players = Player.all 
+    if params[:team_id]
+      @players = Team.find(params[:team_id]).players
+    else
+      @players = Player.all 
+    end
   end
 
   def destroy

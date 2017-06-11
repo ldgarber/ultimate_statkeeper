@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :teams, :players
+  resources :teams do 
+    resources :players
+  end
+  resources :players
 
   namespace :admin do
     # get "/stats" => "stats#stats"

@@ -4,8 +4,13 @@ class TeamsController < ApplicationController
   end
 
   def create
-    current_user.teams.create(team_params)
-    redirect_to root_path
+    if current_user.teams.create(team_params) 
+      flash[:success] = "Team created."
+      redirect_to root_path
+    else
+      flash[:error] = "Team could not be saved. Please fill out all required fields"
+      redirect_to root_path
+    end
   end
   
   def show
@@ -17,8 +22,11 @@ class TeamsController < ApplicationController
 
   def update
     @team = Team.find(params[:id])
-    @team.update(team_params)
-    flash[:message] = "Team saved!"
+    if @team.update(team_params)
+      flash[:success] = "Team saved!"
+    else
+      flash[:error] = "Team could not be saved. Please fill out all required fields"
+    end
     redirect_to team_path(@team) 
   end
 
